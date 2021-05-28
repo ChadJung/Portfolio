@@ -5,6 +5,13 @@ spring:
     username: root
     password: HoleInUrHead11!
 
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+
 project:
   name: JunWebsite
   version: 0.0.0
