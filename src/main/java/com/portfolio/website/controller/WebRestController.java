@@ -1,7 +1,7 @@
 package com.portfolio.website.controller;
 
 import com.portfolio.website.dto.PostsSaveRequestDto;
-import com.portfolio.website.repository.PostsRepository;
+import com.portfolio.website.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class WebRestController {
 
-    private final PostsRepository postsRepository;
+    private final PostsService postsService;
 
     @GetMapping("/hello")
     public String hello(Model model) {
@@ -20,6 +20,6 @@ public class WebRestController {
 
     @PostMapping("/posts")
     public void savePosts(@RequestBody PostsSaveRequestDto dto) {
-        postsRepository.save(dto.toEntity());
+        postsService.save(dto);
     }
 }
