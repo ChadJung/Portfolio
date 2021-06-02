@@ -1,13 +1,28 @@
 spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
   profiles:
     active: local
-
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    properties:
+      hibernate.format-sql: true
 ---
 spring:
   config:
     activate:
       on-profile: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/localtest?serverTimezone=UTC
+    username: root
+    password: HoleInUrHead11!
   jpa:
-    show-sql: true
     generate-ddl: true
     defer-datasource-initialization: true
+  sql:
+    init:
+      platform: mysql
+      data-locations: classpath:data-mysql.sql
