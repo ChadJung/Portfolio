@@ -1,21 +1,77 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/website?serverTimezone=UTC
-    username: root
-    password: HoleInUrHead11!
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
 
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create
       format_sql: true
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
     show-sql: true
 
+  profiles:
+    group:
+      "local": "localtest, common"
+
+---
+
+spring:
+  profiles:
+    group:
+      "dev": "localtest, common"
+
+---
+
+spring:
+  profiles:
+    group:
+      "prod": "website, common"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "local"
+  datasource:
+    url: jdbc:mysql://localhost:3306/localtest?serverTimezone=UTC
+    username: root
+    password: HoleInUrHead11!
+  jpa:
+    generate-ddl: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      platform: mysql
+      data-locations: classpath:data-mysql.sql
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+  datasource:
+    url: jdbc:mysql://localhost:3306/localtest?serverTimezone=UTC
+    username: root
+    password: HoleInUrHead11!
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+  datasource:
+    url: jdbc:mysql://localhost:3306/website?serverTimezone=UTC
+    username: root
+    password: HoleInUrHead11!
+
+---
 project:
   name: JunWebsite
   version: 0.0.0
