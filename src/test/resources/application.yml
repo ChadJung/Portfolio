@@ -9,3 +9,5 @@ spring:
       on-profile: local
   jpa:
     show-sql: true
+    generate-ddl: true
+    defer-datasource-initialization: true
