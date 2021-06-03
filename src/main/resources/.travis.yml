@@ -6,6 +6,10 @@ branches:
   only:
     - master
 
+# Mysql
+services:
+  - mysql
+
 # Travis CI server Home
 cache:
   directories:
@@ -16,6 +20,21 @@ script: "./gradlew clean build"
 
 before_install:
   - chmod +x gradlew
+  - mysql -e 'CREATE DATABASE localtest'
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: webservice-deploy
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: public_read
+    wait-until-deployed: true
+    on:
+      repo: https://github.com/ChadJung/Portfolio
+      branch: master
+
 
 # Notify after CI is completed
 notifications:
