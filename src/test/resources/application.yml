@@ -16,13 +16,9 @@ spring:
     activate:
       on-profile: local
   datasource:
-    url: jdbc:mysql://localhost:3306/localtest?validationQuery="select 1"
+    url: jdbc:mysql://localhost:3306/test?validationQuery="select 1"
     username: root
-    password: HoleInUrHead11!
+    password:
   jpa:
     generate-ddl: true
     defer-datasource-initialization: true
-  sql:
-    init:
-      platform: mysql
-      data-locations: classpath:data-mysql.sql
