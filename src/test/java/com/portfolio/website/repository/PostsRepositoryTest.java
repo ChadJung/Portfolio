@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.lang.model.SourceVersion;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -41,25 +42,27 @@ class PostsRepositoryTest {
         assertThat(posts.getAuthor()).isEqualTo("sjsj");
     }
 
-    @Test
-    public void 베이스엔티티() {
-        //given
-        LocalDateTime now = LocalDateTime.now();
-        postsRepository.save(Posts.builder()
-                .title("test title")
-                .content("test content")
-                .author("test author")
-                .build());
-
-        //when
-        List<Posts> posts = postsRepository.findAll();
-
-        //then
-        Posts post = posts.get(0);
-
-        System.out.println("post.getCreatedDate() = " + post.getCreatedDate());
-        assertThat(post.getCreatedDate()).isAfter(now);
-        assertThat(post.getModifiedDate()).isAfter(now);
-
-    }
+//    @Test
+//    public void 베이스엔티티() {
+//        //given
+//        LocalDateTime now = LocalDateTime.now();
+//        postsRepository.save(Posts.builder()
+//                .title("test title")
+//                .content("test content")
+//                .author("test author")
+//                .build());
+//
+//        //when
+//        List<Posts> posts = postsRepository.findAll();
+//
+//        //then
+//        Posts post = posts.get(0);
+//
+//        assertThat(post.getCreatedDate()).isAfter(now);
+//        assertThat(post.getModifiedDate()).isAfter(now);
+//
+//        System.out.println("post.getCreatedDate() = " + post.getCreatedDate());
+//        System.out.println("now = " + now);
+//
+//    }
 }
