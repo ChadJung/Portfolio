@@ -39,7 +39,7 @@ spring:
     activate:
       on-profile: "local"
   datasource:
-    url: jdbc:mysql://localhost:3306/localtest?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/localtest?validationQuery="select 1"
     username: root
     password:
   jpa:
@@ -57,7 +57,7 @@ spring:
     activate:
       on-profile: "dev"
   datasource:
-    url: jdbc:mysql://localhost:3306/localtest?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/localtest?validationQuery="select 1"
     username: root
     password:
 
@@ -68,7 +68,7 @@ spring:
     activate:
       on-profile: "prod"
   datasource:
-    url: jdbc:mysql://localhost:3306/website?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/website?validationQuery="select 1"
     username: root
     password:
 
