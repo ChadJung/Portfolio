@@ -25,4 +25,17 @@ class WebRestControllerTest {
         //then
         assertThat(body).contains("Spring boot web service");
     }
+
+    @Test
+    public void Profile확인() {
+
+        //given
+
+        //when
+        String profile = restTemplate.getForObject("/profile", String.class);
+
+        //then
+        assertThat(profile).isEqualTo("local");
+
+    }
 }
