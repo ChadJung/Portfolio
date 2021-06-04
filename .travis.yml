@@ -32,13 +32,24 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: webservice-deploy
-    key: webservice.zip
-    application: webservice
-    deployment-group: webservice-group
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
     local_dir: deploy
+    wait-until-deployed: true
+    on:
+      repo: ChadJung/Portfolio
+      branch: master
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: webservice-deploy
+    key: webservice.zip
+    bundle-type: zip
+    application: webservice
+    deployment-group: webservice-group
+    region: ap-northeast-2
     wait-until-deployed: true
     on:
       repo: ChadJung/Portfolio
