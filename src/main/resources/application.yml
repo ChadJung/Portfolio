@@ -20,7 +20,9 @@ spring:
   profiles:
     group:
       "local": "localtest, common"
-
+server:
+  servlet:
+    context-path: /app
 ---
 
 spring:
