@@ -22,7 +22,7 @@ spring:
       "local": "localtest, common"
 server:
   servlet:
-    context-path: /app
+    context-path: /website
 ---
 
 spring:
