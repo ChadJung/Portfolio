@@ -23,7 +23,6 @@ class PostsRepositoryTest {
     @Autowired
     PostsRepository postsRepository;
 
-    //
 //    @Test
 //    public void abc() {
 //        //given
