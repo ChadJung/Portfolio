@@ -18,6 +18,7 @@ spring:
     show-sql: true
 
   profiles:
+    active: local
     group:
       local: localtest, common
       prod: real, common
