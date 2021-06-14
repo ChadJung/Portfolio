@@ -24,6 +24,11 @@ spring:
       prod: real, common
       dev: localtest, common
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
 ---
 
 spring.config.activate.on-profile: common
