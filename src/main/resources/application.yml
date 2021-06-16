@@ -17,8 +17,8 @@ spring:
       local: localtest, common, init
       prod: real, common
       dev: localtest, common
-      set1: set1, real, init
-      set2: set2, real, init
+      set1: set1, real
+      set2: set2, real
 
 ---
 
