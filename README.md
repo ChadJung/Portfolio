@@ -16,4 +16,15 @@
 # 상세
 
 - Master branch에 Push 발생 시 Travis CI에서 빌드
-![image](https://user-images.githubusercontent.com/43230970/124695753-c90cbc00-df1e-11eb-94e4-de6edeb125fe.png)
+
+  ![image](https://user-images.githubusercontent.com/43230970/124695753-c90cbc00-df1e-11eb-94e4-de6edeb125fe.png)
+
+- .travis.yml configuration 설정과 AWS IAM에서 Codedeploy 역할 할당을 통해 배포 스크립트 실행
+
+  ![image](https://user-images.githubusercontent.com/43230970/124695924-1ab54680-df1f-11eb-9afa-5ad6d5fbc08d.png)
+  
+- EC2 인스턴스 내 쉘 스크립트를 통한 배포와 2개의 인스턴스를 운영하여 nginx를 이용한 무중단 배포
+
+  ![image](https://user-images.githubusercontent.com/43230970/124696731-906de200-df20-11eb-86ec-40d687b501ad.png)
+
+  
