@@ -6,7 +6,7 @@ plugins {
 }
 
 apply plugin: 'io.spring.dependency-management'
-apply plugin: "com.ewerk.gradle.plugins.querydsl"
+apply plugin: 'com.ewerk.gradle.plugins.querydsl'
 
 group = 'com.portfolio'
 version = '0.0.7'
@@ -32,7 +32,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-	compileOnly 'org.mariadb.jdbc:mariadb-java-client'
+	implementation 'org.mariadb.jdbc:mariadb-java-client'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	//querydsl 추가
 	implementation 'com.querydsl:querydsl-jpa'
