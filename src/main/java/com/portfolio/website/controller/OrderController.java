@@ -2,6 +2,7 @@ package com.portfolio.website.controller;
 
 import com.portfolio.website.domain.Item;
 import com.portfolio.website.domain.Member;
+import com.portfolio.website.domain.NotEnoughStockException;
 import com.portfolio.website.domain.Order;
 import com.portfolio.website.repository.OrderSearch;
 import com.portfolio.website.service.ItemService;
@@ -30,14 +31,23 @@ public class OrderController {
         model.addAttribute("members", members);
         model.addAttribute("items", items);
 
-        return "/order/orderForm";
+        return "/orders/orderForm";
     }
 
     @PostMapping("/order")
     public String order(@RequestParam("memberId") Long memberId,
                         @RequestParam("itemId") Long itemId,
-                        @RequestParam("count") int count) {
-        orderService.order(memberId, itemId, count);
+                        @RequestParam("count") int count,
+                        Model model) {
+
+        try {
+            orderService.order(memberId, itemId, count);
+        } catch (Exception e) {
+            model.addAttribute("message", e.getMessage());
+
+            return "exceptions/error";
+        }
+
         return "redirect:/orders";
     }
 
@@ -46,7 +56,7 @@ public class OrderController {
         List<Order> orders = orderService.findOrders(orderSearch);
         model.addAttribute("orders", orders);
 
-        return "order/orderList";
+        return "orders/orderList";
     }
 
     @PostMapping("/orders/{orderId}/cancel")

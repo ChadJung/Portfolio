@@ -1,10 +1,7 @@
 package com.portfolio.website.service;
 
 import com.portfolio.website.domain.*;
-import com.portfolio.website.repository.ItemRepository;
-import com.portfolio.website.repository.MemberRepository;
-import com.portfolio.website.repository.OrderRepository;
-import com.portfolio.website.repository.OrderSearch;
+import com.portfolio.website.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +16,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;
+    private final OrderRepositoryCustom orderRepositoryCustom;
 
     public Long order(Long memberId, Long itemId, int count) {
         Member member = memberRepository.findById(memberId).get();
@@ -37,7 +35,7 @@ public class OrderService {
 
     @Transactional(readOnly = true)
     public List<Order> findOrders(OrderSearch orderSearch) {
-        return orderRepository.findAll();
+        return orderRepositoryCustom.searchAllByUsername(orderSearch);
     }
 
     public void cancelOrder(Long orderId) {

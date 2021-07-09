@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
-public class HomeController {
+public class PostController {
 
     private final PostsService postsService;
 
-    @RequestMapping("/")
-    public String home() {
-        return "home";
+    @RequestMapping("/posts")
+    public String home(Model model) {
+        model.addAttribute("posts", postsService.findAllDesc());
+        return "home1";
     }
 }
