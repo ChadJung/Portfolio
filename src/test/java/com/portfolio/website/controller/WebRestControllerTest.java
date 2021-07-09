@@ -16,17 +16,6 @@ class WebRestControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void 메인페이지(){
-        //given
-
-        //when
-        String body = restTemplate.getForObject("/", String.class);
-
-        //then
-        assertThat(body).contains("Spring boot web service");
-    }
-
-    @Test
     public void Profile확인() {
 
         //given
