@@ -15,6 +15,7 @@ public class PostController {
     @RequestMapping("/posts")
     public String home(Model model) {
         model.addAttribute("posts", postsService.findAllDesc());
-        return "home1";
+        return "posts/postList";
     }
+
 }
