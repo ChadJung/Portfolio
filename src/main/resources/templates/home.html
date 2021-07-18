@@ -1,33 +1,25 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head th:replace="fragments/header :: header">
-    <title>Hello</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<div th:replace="fragments/bodyHeader :: bodyHeader" />
 <div class="container">
-    <div th:replace="fragments/bodyHeader :: bodyHeader" />
     <div class="jumbotron">
-        <p class="lead">회원 기능</p>
-        <p>
-            <a class="btn btn-lg btn-secondary" href="/members/new">회원 가입</a>
-            <a class="btn btn-lg btn-secondary" href="/members">회원 목록</a>
-        </p>
-        <p class="lead">상품 기능</p>
-        <p>
-            <a class="btn btn-lg btn-dark" href="/items/new">상품 등록</a>
-            <a class="btn btn-lg btn-dark" href="/items">상품 목록</a>
-        </p>
-        <p class="lead">주문 기능</p>
-        <p>
-            <a class="btn btn-lg btn-info" href="/order">상품 주문</a>
-            <a class="btn btn-lg btn-info" href="/orders">주문 내역</a>
-        </p>
-        <p class="lead">문의 기능</p>
-        <p>
-            <a class="btn btn-lg btn-info" href="/post">문의하기</a>
-            <a class="btn btn-lg btn-info" href="/posts">문의 내역</a>
-        </p>
+        <ul>
+            <li class="main-list">
+                <a href="/members" class="main-menu menu1">회원 관리</a>
+            </li>
+            <li class="main-list">
+                <a href="/items" class="main-menu menu2">상품 관리</a>
+            </li>
+            <li class="main-list">
+                <a href="/orders" class="main-menu menu3">주문 관리</a>
+            </li>
+            <li class="main-list">
+                <a href="/posts" class="main-menu menu4">고객센터</a>
+            </li>
+        </ul>
     </div>
     <div th:replace="fragments/footer :: footer" />
 </div> <!-- /container -->

@@ -12,7 +12,6 @@ body {
 }
 /* Custom page header */
 .header {
-    border-bottom: 1px solid #e5e5e5;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -30,7 +29,6 @@ body {
 /* Customize container */
 @media (min-width: 768px) {
     .container {
-        max-width: 730px;
     }
 }
 .container-narrow > hr {
@@ -38,8 +36,12 @@ body {
 }
 /* Main marketing message and sign up button */
 .jumbotron {
+    max-width: 730px;
+    max-height: 520px;
     text-align: center;
     border-bottom: 1px solid #e5e5e5;
+    display:flex;
+    justify-content: center;
 }
 .jumbotron .btn {
     font-size: 21px;

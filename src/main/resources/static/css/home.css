@@ -1,0 +1,36 @@
+a.main-menu {
+    display: inline;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    color: white;
+    padding: 25% 10%;
+    font-weight: bold;
+    flex: auto;
+}
+
+.jumbotron ul{
+    flex: 1 1 0;
+    display: flex;
+}
+
+li.main-list{
+    list-style: none;
+    flex: auto;
+}
+
+a.menu1{
+    background-color: lightgray;
+}
+
+a.menu2{
+    background-color: gray;
+}
+
+a.menu3{
+    background-color: cornflowerblue;
+}
+
+a.menu4{
+    background-color: lightblue;
+}
